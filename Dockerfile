@@ -1,7 +1,7 @@
 FROM frolvlad/alpine-glibc:alpine-3.10 as build
 
-ARG TMOD_VERSION=0.11.6.2
-ARG TERRARIA_VERSION=1353
+ARG TMOD_VERSION=0.11.7
+ARG TERRARIA_VERSION=1402
 
 RUN apk update &&\
     apk add --no-cache --virtual build curl unzip &&\
@@ -11,7 +11,7 @@ WORKDIR /terraria-server
 
 RUN cp /usr/lib/libMonoPosixHelper.so .
 
-RUN curl -SLO "http://terraria.org/server/terraria-server-${TERRARIA_VERSION}.zip" &&\
+RUN curl -SLO "https://terraria.org/system/dedicated_servers/archives/000/000/036/original/terraria-server-1402.zip" &&\
     unzip terraria-server-*.zip &&\
     rm terraria-server-*.zip &&\
     cp --verbose -a "${TERRARIA_VERSION}/Linux/." . &&\
